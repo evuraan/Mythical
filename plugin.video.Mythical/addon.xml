@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.Mythical"
+version="1.0.3a"
+name="Mythical Video Plugin"
+provider-name="Evuraan@Gmail.com">
+<requires>
+  <import addon="xbmc.python" version="2.25.0"/>
+<import addon="script.module.requests" version="1.0"/>
+</requires>
+<extension point="xbmc.python.pluginsource" library="main.py">
+  <provides>video</provides>
+</extension>
+<extension point="xbmc.addon.metadata">
+  <summary lang="en">Play MythTV recordings</summary>
+  <description lang="en">Play MythTV recordings </description>
+  <disclaimer lang="en">MythTV recordings from our collection.</disclaimer>
+  <assets>
+    <icon>images/jt_img1.jpg</icon>
+    <fanart>images/jt_jelly.jpg</fanart>
+    <screenshot>images/jt_glass.jpg</screenshot>
+    <screenshot>images/jt_moon.jpg</screenshot>
+    <screenshot>images/jt_leaves.jpg</screenshot>
+  </assets>
+  <news>Ver 1.0.3a - Mythical - yet another Kodi plugin for MythTV.</news>
+</extension>
+</addon>
