@@ -33,7 +33,7 @@ Next, we need to setup a cron job that would generate `/var/lib/mythtv/recording
 Setting up generate_info.sh:
 
 ```bash
-$ wget https://raw.githubusercontent.com/evuraan/Mythical/master/scripts/generate_info.py -O /usr/local/bin/generate_info.sh
+$ wget https://raw.githubusercontent.com/evuraan/Mythical/master/scripts/generate_info.sh -O /usr/local/bin/generate_info.sh
 $ chmod u+x  /usr/local/bin/generate_info.sh
 $ echo "*/15 * * * *   `whoami` /usr/local/bin/generate_info.sh 1>/dev/null 2>/dev/null || :" | sudo tee -a /etc/crontab
 ```
