@@ -15,17 +15,20 @@ if __name__ == "__main__":
 		mylist = list()
 		recs = db.searchRecorded()
 		for recording in recs:
-			y = recording.getProgram()
-			_when = y["starttime"]
-			a = "{Title}###---###{description}###---###{filename}###---###{filesize}###---###{starttime}".format(
-					Title=y["title"],
-					description=y["description"],
-					filename = y["filename"],
-					filesize = y["filesize"],
-					starttime = _when
-				)
-			add_this = (_when.timestamp(), a)
-			mylist.append(add_this)
+			try:
+				y = recording.getProgram()
+				_when = y["starttime"]
+				a = "{Title}###---###{description}###---###{filename}###---###{filesize}###---###{starttime}".format(
+						Title=y["title"],
+						description=y["description"],
+						filename = y["filename"],
+						filesize = y["filesize"],
+						starttime = _when
+					)
+				add_this = (_when.timestamp(), a)
+				mylist.append(add_this)
+			except:
+				print("Skipping", recording)
 
 		if mylist:
 			mylist.sort(reverse=True)
@@ -33,6 +36,8 @@ if __name__ == "__main__":
 				for i in mylist:
 					#print(i[1])
 					fobj.write(i[1] + "\n")
+		else:
+			print("Error 22.1, please check!")
 			
 	except:
 		print("Some error")
