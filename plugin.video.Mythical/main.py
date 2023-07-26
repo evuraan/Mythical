@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 # evuraan@gmail.com
-# Mostly based on https://github.com/romanvm/plugin.video.example by romanvm
 
 import sys
-from urllib import urlencode
-from urlparse import parse_qsl
+from urllib.parse import urlencode
+from urllib.parse import parse_qsl
 import xbmcgui
 import xbmcplugin
-import time
 import requests
 
 myReq = requests.Session()
 
 BaseURL = "https://evuraan.info/evuraan/stuff/Mythical/"
+
 
 # Get the plugin url in plugin:// notation.
 _url = sys.argv[0]
@@ -23,31 +22,31 @@ VIDEOS = ""
 
 
 def get_videos_dict():
-	recordings_url = BaseURL + "recordings.txt"
-	a =  myReq.get(recordings_url)
-	if a.ok:
-		VIDEOS = dict()
-		for i in a.text.split("\n"):
-			recording_info = i.split("###---###")
-			# America's Test Kitchen from Cook's Illustrated###---###Mexican Fare: Crispy Tacos are served and Roasted Poblano and Black Bean Enchiladas are prepared.###---###1091_20191024123000.mpg###---###2375320216###---###2019-10-24 12:29:54
-			if len(recording_info) == 5:
-				item_dict = dict()
-				prog = recording_info[0]
-				item_dict["prog"] = prog
-				item_dict["title"] = recording_info[4] + " " + recording_info[1]
-				item_dict["video"] = BaseURL + recording_info[2]
-				item_dict["thumb"] = item_dict["video"] + ".png"
-				item_dict["size"] = recording_info[3]
-				item_dict["when"] = recording_info[4]
+    recordings_url = BaseURL + "recordings.txt"
+    a =  myReq.get(recordings_url)
+    if a.ok:
+        VIDEOS = dict()
+        for i in a.text.split("\n"):
+            recording_info = i.split("###---###")
+            # America's Test Kitchen from Cook's Illustrated###---###Mexican Fare: Crispy Tacos are served and Roasted Poblano and Black Bean Enchiladas are prepared.###---###1091_20191024123000.mpg###---###2375320216###---###2019-10-24 12:29:54
+            if len(recording_info) == 5:
+                item_dict = dict()
+                prog = recording_info[0]
+                item_dict["prog"] = prog
+                item_dict["title"] = recording_info[4] + " " + recording_info[1]
+                item_dict["video"] = BaseURL + recording_info[2]
+                item_dict["thumb"] = item_dict["video"] + ".png"
+                item_dict["size"] = recording_info[3]
+                item_dict["when"] = recording_info[4]
 
-				if item_dict["prog"] in VIDEOS.keys():
-					VIDEOS[prog].append(item_dict)
-				else:
-					VIDEOS[prog] = [item_dict]
+                if item_dict["prog"] in VIDEOS.keys():
+                    VIDEOS[prog].append(item_dict)
+                else:
+                    VIDEOS[prog] = [item_dict]
 
-		return VIDEOS
-	else:
-		return False
+        return VIDEOS
+    else:
+        return False
 
 def get_url(**kwargs):
     """
@@ -75,7 +74,7 @@ def get_categories():
     :return: The list of video categories
     :rtype: types.GeneratorType
     """
-    return VIDEOS.iterkeys()
+    return VIDEOS.keys()
 
 
 def get_videos(category):
@@ -217,7 +216,7 @@ def router(paramstring):
         elif params['action'] == 'play':
             # Play a video from a provided URL.
             logthis = "About to play {vid}".format(vid=params['video'])
-            xbmc.log(logthis, level=xbmc.LOGNOTICE)
+            xbmc.log(logthis, level=xbmc.LOGINFO)
             play_video(params['video'])
         else:
             # If the provided paramstring does not contain a supported action
