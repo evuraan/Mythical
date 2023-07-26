@@ -10,11 +10,11 @@ I am sharing this in hopes that someone else may find it useful.
 
 ## Kodi 18 and before
 
-They switched to [Python3 in Kodi 19](https://kodi.wiki/view/General_information_about_migration_to_Python_3) and after.
+They switched to [Python3 in Kodi 19](https://kodi.wiki/view/General_information_about_migration_to_Python_3).
 
-The addon zip that works for Python 2.x is at https://github.com/evuraan/Mythical/tree/MythTV_Plugin_For_Pre_Python3_Kodi - download the plugin zip and follow instructions from there.
+The addon zip that works for previous versions using Python 2.x is at https://github.com/evuraan/Mythical/tree/MythTV_Plugin_For_Pre_Python3_Kodi - download the plugin zip and follow instructions from there.
 
-If you are using Kodi 19 and after, read on.
+If you are using Kodi 19+ that uses Python 3, read on.
 
 ## Setting up
 
