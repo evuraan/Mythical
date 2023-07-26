@@ -6,11 +6,13 @@ Yet another Kodi plugin for MythTV.
 
 I needed a simple MythTv plugin for Kodi, so here is the one I wrote.
 
-I decided to write a Kodi Video addon that would work with my MythBackend version, and came up with `Mythical` plugin. I am sharing this in hopes that someone else may find it useful.
+I am sharing this in hopes that someone else may find it useful.
 
 ## Kodi 18 and before
 
-They switched to [Python3 in Kodi 19](https://kodi.wiki/view/General_information_about_migration_to_Python_3) and after. The addon zip that works for Python 2.x is at https://kodi.wiki/view/General_information_about_migration_to_Python_3 - download the zip from there.
+They switched to [Python3 in Kodi 19](https://kodi.wiki/view/General_information_about_migration_to_Python_3) and after.
+
+The addon zip that works for Python 2.x is at https://github.com/evuraan/Mythical/tree/MythTV_Plugin_For_Pre_Python3_Kodi - download the plugin zip and follow instructions from there.
 
 If you are using Kodi 19 and after, read on.
 
@@ -20,7 +22,7 @@ Since you have a MythBackend running, it is assumed that you've the technical pr
 
 #### Step 1 : Setup your BaseURL
 
-In most cases, MythTV records to `/var/lib/mythtv/recordings` folder. We need to make this folder avaialable for Kodi to do HTTP GETs.
+In most cases, MythTV records to `/var/lib/mythtv/recordings` folder. We need to make this folder available for Kodi to do HTTP GETs.
 
 If you have apache, the following would allow internal network 192.168.1.0/24 to access this directory. That is, if your MythTV backend server is at IP 192.168.1.100, you'd now be able to reach`http://192.168.1.100/recordings/`from your local network.
 
@@ -36,7 +38,7 @@ If you have apache, the following would allow internal network 192.168.1.0/24 to
 
 #### Step 2 : Setup generate_info cronjob
 
-Next, we need to setup a cron job that would generate `/var/lib/mythtv/recordings/recordings.txt` - I've two scripts with the same funcationality : a python script [generate_info.py](https://github.com/evuraan/Mythical/blob/master/scripts/generate_info.py), or a bash variant, [generate_info.sh](https://github.com/evuraan/Mythical/blob/master/scripts/generate_info.sh) - pick whichever you're comfortable with.
+Next, we need to setup a cron job that would generate `/var/lib/mythtv/recordings/recordings.txt` - I've two scripts with the same functionality : a python script [generate_info.py](https://github.com/evuraan/Mythical/blob/master/scripts/generate_info.py), or a bash variant, [generate_info.sh](https://github.com/evuraan/Mythical/blob/master/scripts/generate_info.sh) - pick whichever you're comfortable with.
 
 Setting up generate_info.sh:
 
