@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="plugin.video.Mythical"
-version="1.0.3a"
+version="2.0.3a"
 name="Mythical Video Plugin"
 provider-name="Evuraan@Gmail.com">
 <requires>
-  <import addon="xbmc.python" version="2.25.0"/>
 <import addon="script.module.requests" version="1.0"/>
 </requires>
 <extension point="xbmc.python.pluginsource" library="main.py">
@@ -21,6 +20,10 @@ provider-name="Evuraan@Gmail.com">
     <screenshot>images/jt_moon.jpg</screenshot>
     <screenshot>images/jt_leaves.jpg</screenshot>
   </assets>
-  <news>Ver 1.0.3a - Mythical - yet another Kodi plugin for MythTV.</news>
+  <news>
+    Ver 2.0.3a - Mythical - a simple MythTV plugin for Kodi.
+     - 07/23 - Updating for kodi 19 onwards which requires python3 
+    See https://github.com/evuraan/Mythical
+  </news>
 </extension>
 </addon>
